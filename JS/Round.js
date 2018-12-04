@@ -1,6 +1,7 @@
 class Round {
   constructor() {
-    this.round = 0
+    //this.round = 0 moved this.round to game
+    this.currentQuestions = currentQuestions //pass through our array of objects that we use
   }
 
   scoreMultipy() {

@@ -1,8 +1,14 @@
 class Game {
+  constructor() {
+    this.round = 0,
+    this.players = {}, // {player1: 'whatever is put in imput', ...}
+    this.round3 = false,
+    this.winner = null
+  }
 
   init() {
     //starts game
-    //Round.round++
+    //this.round++
   }
 
   endGame() {
@@ -10,7 +16,7 @@ class Game {
   }
 
   startRound() {
-    //Round.round ++
+    //this.round ++
     //run generate Board function in Board.js
   }
 
