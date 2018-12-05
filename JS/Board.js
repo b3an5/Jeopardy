@@ -1,7 +1,9 @@
 class Board {
   constructor() {
     this.currentCatigories = [],
-    this.currentClues = []
+    this.currentClues = [],
+    this.completedClues = 0, //if this equals 16 this.completed = true and run end round instead of moving to next player
+    this.completed = false
   }
 
   populateBoard() {
