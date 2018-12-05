@@ -29,3 +29,7 @@ class Game {
     //resets game 
   }
 }
+
+if (typeof module !== 'undefined') {
+  module.exports = Game;
+}
