@@ -4,3 +4,7 @@ class Player {
     this.score = 0
   }
 }
+
+if (typeof module !== 'undefined') {
+  module.exports = Player;
+}

@@ -16,3 +16,7 @@ class Board {
     // dom disable fn
   }
 }
+
+if (typeof module !== 'undefined') {
+  module.exports = Board;
+}
