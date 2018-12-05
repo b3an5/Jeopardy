@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #7530ff;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+form {
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 10%;
+  animation: form 3s;
+}
+
+button {
+  margin: 0px auto;
+  font-size: 2em;
+  background-color: #ffa100;
+  border-radius: 25px;
+  border: 0;
+  width: 200px;
+}
+
+label {
+  color: #ffffff;
+  padding: 10px;
+  background: linear-gradient(to right, #e600d7, #ff3743);
+  border-radius: 25px;
+}
+
+input {
+  font-size: 1.5em;
+  border: 0;
+}
+
+#tv-frame {
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+#static {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  animation: static 2s;
+}
+
+.form {
+  text-align: center;
+  padding-top: 20px;
+}
+
+@keyframes static {
+  2%, 10%, 18%, 26%, 34%, 42%, 50%, 58%, 66%, 74%, 82%, 90%, 98% {
+    background-image: url("images/staticone.png");
+  }
+  4%, 12%, 20%, 28%, 36%, 44%, 52%, 60%, 68%, 76%, 84%, 92%, 100%{
+    background-image: url("images/statictwo.png");
+  }
+  6%, 14%, 22%, 30%, 38%, 46%, 54%, 62%, 70%, 78%, 86%, 94% {
+    background-image: url("images/staticthree.png");
+  }
+  8%, 16%, 24%, 32%, 40%, 48%, 56%, 64%, 72%, 80%, 88%, 96% {
+    background-image: url("images/staticfour.png");
+  }
+}
+
+@keyframes form {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
