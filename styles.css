@@ -1,14 +1,9 @@
+
 body {
   margin: 0;
   width: 100%;
   height: 100%;
   background-color: #7530ff;
-}
-
-section {
-  width: 100%;
-  height: 100%;
-  position: absolute;
 }
 
 form {
@@ -41,13 +36,31 @@ input {
   border: 0;
 }
 
+h2 {
+  border: 2px solid #000000;
+  padding: 20px;
+  margin: 0px;
+
+}
+
+#board-game {
+  position: relative;
+}
+
 #board {
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
-  height: 200px;
-  width: 450px;
+  width: 80%;
   margin: 0px auto;
+}
+
+#podium {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translate(-50%);
 }
 
 #tv-frame {
@@ -65,16 +78,32 @@ input {
   animation: static 2s;
 }
 
+.name {
+  font-family: 'Gochi Hand', cursive;
+}
+
+.podium {
+  color: #ffffff;
+  border: 2px solid #000000;
+  padding: 10px 40px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px auto;
+}
+
 .form {
   text-align: center;
   padding-top: 20px;
 }
 
 .game-board-cards {
+  color: #ffffff;
+  text-align: center;
   background-color: indigo;
-  width: 100px;
-  height: 40px;
+  width: 20%;
+  height: 100px;
   margin: 5px;
+  box-shadow: 2px 2px 5px #000000;
 }
 
 .hidden {
@@ -110,14 +139,25 @@ input {
 
 @keyframes tvframe {
   0% { 
-    transform: scale(1);
-    
+    transform: scale(1); 
   }
-
   99% {
     transform: scale(2);
   }
   100% {
     display: none;
+  }
+}
+
+@keyframes card {
+   0% {
+    width: 0%;
+    height: 0px;
+    opacity: 0;
+  }
+  100% {
+    width: 22%;
+    height: 100px;
+    opacity: 1;
   }
 }

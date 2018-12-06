@@ -9,17 +9,13 @@ class Game {
 
   init() {
     //starts game
-    domUpdates.displayNames()
-    let playerOneName = $('.js-player1-name-input').val()
-    let playerTwoName = $('.js-player2-name-input').val()
-    let playerThreeName = $('.js-player3-name-input').val()
-    let playerOne = new Player(playerOneName);
-    this.players.push(playerOne)
-    let playerTwo = new Player(playerTwoName);
-    this.players.push(playerTwo)
-    let playerThree = new Player(playerThreeName);
-    this.players.push(playerThree)
-    this.round++
+    this.players.push(new Player($('.js-player1-name-input').val()));
+    this.players.push(new Player($('.js-player2-name-input').val()));
+    this.players.push(new Player($('.js-player3-name-input').val()));
+    domUpdates.displayNames();
+    domUpdates.displayScores();
+    domUpdates.displayGame();
+    this.round++;
   }
 
   parseData() {
@@ -52,6 +48,9 @@ class Game {
   reset() {
     //Round.round = 0
     //resets game 
+  }
+  random() {
+    //use to create random number for the game
   }
 }
 
