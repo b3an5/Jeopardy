@@ -1,11 +1,10 @@
-
-
 class Game {
   constructor() {
     this.round = 0,
     this.players = [], // {player1: 'whatever is put in imput', ...}
     this.round3 = false,
     this.winner = null
+    this.data;
   }
 
   init() {
@@ -17,6 +16,20 @@ class Game {
     domUpdates.displayScores();
     domUpdates.displayGame();
     this.round++;
+  }
+
+  parseData() {
+    let clues = (Object.values(data)[2])
+
+    this.data = (Object.keys(Object.values(data)[1])).map((category, index) => {
+      let clueVal = []
+      clues.forEach((clue) => {
+        if (clue.categoryId === index + 1) {
+          clueVal.push(clue)
+        }
+      })
+      return { category, clues: clueVal }
+    })
   }
 
   endGame() {

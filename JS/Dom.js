@@ -29,6 +29,12 @@ let domUpdates = {
     setTimeout(() => {
       $('#podium').css('display', 'block')
     }, 2000 )
+  },
+  displayCat(cats) {
+    $('#one').text(cats[0]);
+    $('#two').text(cats[1]);
+    $('#three').text(cats[2]);
+    $('#four').text(cats[3]);
   }
   // startTimer() {
 
