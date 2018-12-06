@@ -1,6 +1,6 @@
 class Player {
   constructor(name) {
-    this.name = name,
+    this.name = name || "Watson",
     this.score = 0
   }
 }

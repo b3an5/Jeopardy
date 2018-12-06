@@ -3,12 +3,7 @@ let game = new Game()
 
 
 $('.start-button').on('click', (e) => {
-  e.preventDefault()
-  $('.form').css('display', 'none');
-  $('#tv-frame').css('animation', 'tvframe 5s')
-  game.init()
-  setTimeout(() => {
-    $('#splash-page').css('display', 'none')
-  }, 2000)
-  $('.hidden').css('display', 'block')
+  e.preventDefault();
+  game.init();
+  domUpdates.splash();
 })
