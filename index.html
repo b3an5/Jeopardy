@@ -9,10 +9,9 @@
   <section id="splash-page">
     <img id="tv-frame" src="images/tvframe.png">
     <div id="static"></div>
-    <h1>jeopardy</h1>
     <form>
       <div class="form">
-       <button>Start</button>
+       <button class="start-button">Start</button>
       </div>
       <div class="form">
         <label>Player One</label>
@@ -20,13 +19,13 @@
         <label>Player Three</label>
       </div>
       <div class="form">
-        <input id="js-player-one-name" type="text">
-        <input id="js-palyer-two-name" type="text">
-        <input id="js-player-three-name" type="text">
+        <input class="js-player1-name-input" type="text">
+        <input class="js-player2-name-input" type="text">
+        <input class="js-player3-name-input" type="text">
       </div>
+    </form>
   </section>
-  <section id="board-game">
-    <h1>JEOPARDY!</h1>
+  <section id="board-game" class="hidden">
     <article id="board">
       <div id="one" class="game-board-cards"><p>let it snow</p></div>
       <div id="two" class="game-board-cards"><p>let it snow</p></div>
@@ -51,24 +50,24 @@
     </article>
     <article>
       <div>
-        <h2>player one</h2>
+        <h2 id="js-player1-name">player one</h2>
       </div>
       <div>
-        <h2>player two</h2>
+        <h2 id="js-player2-name">player two</h2>
       </div>
       <div>
-        <h2>palyer three</h2>
+        <h2 id="js-player3-name">palyer three</h2>
       </div>
     </article>
   </section>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/Data.js"></script>
+<script type="text/javascript" src="js/Player.js"></script>
 <script type="text/javascript" src="js/Board.js"></script>
-<script type="text/javascript" src="js/Clue.js"></script>
 <script type="text/javascript" src="js/Dom.js"></script>
+<script type="text/javascript" src="js/Clue.js"></script>
+<script type="text/javascript" src="js/Round.js"></script>
 <script type="text/javascript" src="js/Game.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/Player.js"></script>
-<script type="text/javascript" src="js/Round.js"></script>
 </html>

@@ -1,7 +1,24 @@
 class Round {
-  constructor(currentQuestions) {
+  constructor() {
     //this.round = 0 moved this.round to game
-    this.currentQuestions = currentQuestions //pass through our array of objects that we use
+    this.currentCategories = [],
+    this.inUseArr = [],
+    this.completedClues = 0,
+    this.completed = false
+  }
+
+  grabCategories(fullData) {
+    for (var i = 0; i < 4; i++) {
+      let randomIndex = Math.floor(Math.random() * fullData.length);
+      let category = fullData.splice(randomIndex, 1)
+      this.inUseArr.push(category)
+    }
+
+    this.inUseArr.forEach((inUse) => {
+      this.currentCategories.push(inUse[0].category);
+    })
+
+    domUpdates.displayCat(this.currentCategories);
   }
 
   scoreMultipy() {
