@@ -1,5 +1,4 @@
 let game = new Game()
-let board = new Board()
 let round;
 
 $('.start-button').on('click', (e) => {
@@ -9,4 +8,5 @@ $('.start-button').on('click', (e) => {
   game.parseData();
   round = new Round()
   round.grabCategories(game.data);
+  round.grabClues() 
 })

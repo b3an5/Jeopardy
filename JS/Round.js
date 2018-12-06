@@ -2,6 +2,7 @@ class Round {
   constructor() {
     //this.round = 0 moved this.round to game
     this.currentCategories = [],
+    this.currentClues = [],
     this.inUseArr = [],
     this.completedClues = 0,
     this.completed = false
@@ -18,8 +19,56 @@ class Round {
       this.currentCategories.push(inUse[0].category);
     })
 
+    this.inUseArr = this.inUseArr.reduce((acc, arr) => {return acc.concat(arr)}, [])
+
     domUpdates.displayCat(this.currentCategories);
   }
+
+
+  // ---------------------------------
+  grabClues() {
+    console.log(this.inUseArr)
+     let thecluesforthegame = this.inUseArr.reduce((acc, clue) => {
+      acc.push(clue.clues)
+      return acc
+      }, []);
+
+
+    let shuffle = thecluesforthegame.map((clue) => {
+    let cluess = clue
+    for (let i = cluess.length - 1; i > 0; i--) {
+        const a = Math.floor(Math.random() * (i + 1));
+        [cluess[i], cluess[a]] = [cluess[a], cluess[i]];
+          }
+        return clue
+    })
+
+    let theFourClue = shuffle.map((four) => {
+      let blah = []
+          for(let i=0; i<4; i++) {
+            blah.push(four.find((clue, index) => clue.pointValue === ((i + 1) * 100) ))
+          }
+      return blah
+    })
+
+    let concatthatshit = theFourClue.reduce((acc, hello) => {
+      return acc.concat(hello)
+    }, [])
+
+    this.currentClues = concatthatshit.sort((catA, catB) => {
+      return catA.pointValue - catB.pointValue
+    })
+  }
+
+
+  displayClue() {
+    currentClues.forEach((clue) => {
+
+    })
+  }
+
+
+  //---------------------------------
 
   scoreMultipy() {
     if (Game.round === 1) {
