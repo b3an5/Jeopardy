@@ -6,9 +6,36 @@ class Board {
     this.completed = false
   }
 
+
+  /////this needs refactoring
   populateBoard() {
     // runs dom fn
-    //gets values from dataset
+    let clues = (Object.values(data)[2])
+    console.log('clues', clues)
+
+    let fullData = (Object.keys(Object.values(data)[1])).map((category, index) => {
+      let clueVal = []
+      clues.forEach((clue) => {
+        if (clue.categoryId === index + 1) {
+          clueVal.push(clue)
+        }
+      })
+      return { category, clues: clueVal }
+    })
+
+    let inUseArr = []
+
+    for (var i = 0; i < 4; i++) {
+      let randomIndex = Math.floor(Math.random() * fullData.length);
+      let category = fullData.splice(randomIndex, 1)
+      inUseArr.push(category)
+    }
+
+    inUseArr.forEach((inUse) => {
+      this.currentCatigories.push(inUse[0].category);
+    })
+
+    domUpdates.displayCat(this.currentCatigories);
   }
 
   emptyBoard() {
