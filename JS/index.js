@@ -8,5 +8,10 @@ $('.start-button').on('click', (e) => {
   game.parseData();
   round = new Round()
   round.grabCategories(game.data);
-  round.grabClues() 
+  round.grabClues()
+  round.displayClue() 
 })
+
+$('.cards-value').on('click', function(event) {
+   alert(round.currentClues[$('.cards-value').index($(event.target))].question);
+});
