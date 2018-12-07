@@ -1,5 +1,4 @@
-let game = new Game()
-let board = new Board()
+let game = new Game();
 let round;
 
 $('.start-button').on('click', (e) => {
