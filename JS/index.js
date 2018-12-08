@@ -13,5 +13,6 @@ $('.start-button').on('click', (e) => {
 })
 
 $('.cards-value').on('click', function(event) {
-   alert(round.currentClues[$('.cards-value').index($(event.target))].question);
+  let clue = new Clue;
+   clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
 });
