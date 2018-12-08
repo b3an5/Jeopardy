@@ -1,4 +1,5 @@
-let game = new Game()
+let game = new Game();
+let clue = new Clue();
 let round;
 
 $('.start-button').on('click', (e) => {
@@ -13,6 +14,13 @@ $('.start-button').on('click', (e) => {
 })
 
 $('.cards-value').on('click', function(event) {
-  let clue = new Clue;
    clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
+    clue.answerplace = $('.cards-value').index($(event.target));
 });
+
+$(window).on('click', (e) => {
+  e.preventDefault();
+ if ($(event.target).hasClass('clue-button')) {
+  console.log($('.clue-input').val())
+    clue.checkAnswer($('.clue-input').val());
+}})

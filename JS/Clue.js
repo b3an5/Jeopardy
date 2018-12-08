@@ -1,22 +1,32 @@
 class Clue {
   constructor() {
     this.question;
-    this.answer; 
+    this.answerplace = 0; 
     this.player = 0;
+    this.guessCount = 0;
   }
-  checkAnswer() {
-    let guessCount = 0;
-    if( answer != input && player === 2) {
-      // displey something to indicate next players turn
-      player = 0;
-    }else if ( answer != input) {
-      // displey something to indicate next players turn
-      player++
-    }else /*( answer === input.toLowerCase()) */ {
-      // displey something to indicate won and pick next value on board
+  checkAnswer(input) {
+    if( 'hello' != input && this.player === 3) {
+      this.player = 0;
+    } 
+    if ( round.currentClues[this.answerplace].answer !== input ) {
+     game.players[this.player].score  -= round.currentClues[this.answerplace].pointValue;
+     this.what++
+     if(this.guessCount === 3 ) {
+      alert("hello world yall all wrong")
+     }
+     domUpdates.displayScores()
+      this.player++
     }
-    
+    if( round.currentClues[this.answerplace].answer ===  input ) {
+      game.players[this.player].score  += round.currentClues[this.answerplace].pointValue;
+      domUpdates.displayScores()
+      domUpdates.tearDownCard()
+      domUpdates.rightAnswer()
+    } 
   }
+
+
   cluePopup(some) {
     this.question = some.question;
     this.answer = some.answer;
@@ -31,10 +41,11 @@ class Clue {
         </form>
       </div>`)
     $('#board').append(div);
-    //start time
+    setTimeout(() => {
+    alert("time is up")
+  } , 10000)
+  }
   } 
-
-}
 
 
 if (typeof module !== 'undefined') {

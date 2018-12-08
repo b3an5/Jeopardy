@@ -35,8 +35,15 @@ let domUpdates = {
     $('#two').text(cats[1]);
     $('#three').text(cats[2]);
     $('#four').text(cats[3]);
+  },
+  tearDownCard() {
+    setTimeout(() => {
+    $('.popup').hide();
+  } , 1000)
+  },
+  rightAnswer() {
+    setTimeout( () => {
+      $('#check').css('display', 'block') 
+    }, 1000)
   }
-  // startTimer() {
-
-  // }
 }

@@ -132,6 +132,18 @@ p {
   display: none;
 }
 
+#check {
+    z-index: 9;
+    color: red;
+    position: absolute;
+    display: none;
+    width: 80%;
+    height: 80%;
+    fill: green;
+    left: 0;
+    top: 0;
+}
+
 @keyframes static {
   2%, 10%, 18%, 26%, 34%, 42%, 50%, 58%, 66%, 74%, 82%, 90%, 98% {
     background-image: url("images/staticone.png");
