@@ -53,6 +53,7 @@ class Round {
     }, []).sort((clueA, clueB) => {
       return clueA.pointValue - clueB.pointValue
     })
+    this.makeDailyDouble();
   }
 
   displayClue() {
@@ -80,6 +81,13 @@ class Round {
       game.endRound()
       game.startRound()
       this.completedClues = 0
+    }
+  }
+
+  makeDailyDouble() {
+    for (let i = 0; i < game.round; i++) {
+      let randomIndex = Math.floor(Math.random() * 16);
+      this.currentClues[randomIndex].categoryId = true;
     }
   }
 }

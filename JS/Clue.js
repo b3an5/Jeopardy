@@ -30,7 +30,6 @@ class Clue {
     } 
   }
 
-
   cluePopup(some) {
     this.question = some.question;
     this.answer = some.answer;
@@ -48,6 +47,17 @@ class Clue {
     // setTimeout(() => {
     //   alert("time is up")
     // } , 10000)
+  }
+
+  dailyDoublePopup() {
+    let div = $(
+      `<div class='dd-popup'>
+        <h1>DAILY</h1>
+        <h1>DOUBLE</h1>
+        <input class='dd-input' typle ='text' >
+        <button class='dd-button'>Enter</button>
+      </div>`
+      )
   }
 } 
 
