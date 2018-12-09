@@ -9,21 +9,18 @@ class Round {
   }
 
   grabCategories(fullData) {
+    this.currentCategories = [];
     for (var i = 0; i < 4; i++) {
       let randomIndex = Math.floor(Math.random() * fullData.length);
       let category = fullData.splice(randomIndex, 1)
       this.inUseArr.push(category)
     }
 
-    this.inUseArr = this.inUseArr.reduce((acc, arr) => {
-      return acc.concat(arr)
-    }, [])
-
     this.inUseArr.forEach((inUse) => {
-      this.currentCategories.push(inUse.category);
+      this.currentCategories.push(inUse[0].category);
     })
 
-    this.inUseArr = this.inUseArr.reduce((acc, arr) => {return acc.concat(arr)}, [])
+    this.inUseArr = this.inUseArr.reduce((acc, arr) => { return acc.concat(arr) }, [])
 
     domUpdates.displayCat(this.currentCategories);
   }
@@ -45,9 +42,9 @@ class Round {
 
     let theFourClue = thecluesforthegame.map((clue) => {
       let clueSets = []
-          for(let i=0; i<4; i++) {
-            clueSets.push(clue.find((clue, index) => clue.pointValue === ((i + 1) * 100) ))
-          }
+      for (let i = 0; i < 4; i++) {
+        clueSets.push(clue.find((clue, index) => clue.pointValue === ((i + 1) * 100)))
+      }
       return clueSets
     })
 
@@ -78,8 +75,12 @@ class Round {
     }
   }
 
-  changeTurn() {
-    //if guess is wrong change to next player
+  changeRound() {
+    if (this.completedClues === 16) {
+      game.endRound()
+      game.startRound()
+      this.completedClues = 0
+    }
   }
 }
 

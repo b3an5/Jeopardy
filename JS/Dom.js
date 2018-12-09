@@ -38,12 +38,23 @@ let domUpdates = {
   },
   tearDownCard() {
     setTimeout(() => {
-    $('.popup').hide();
-  } , 1000)
+      $('.popup').remove();
+    }, 1000)
+
   },
   rightAnswer() {
     setTimeout( () => {
       $('#check').css('display', 'block') 
+      posSound.play()
+      themeMusic.volume = 0.6
     }, 1000)
+    setTimeout(() => {
+      $('#check').hide()
+      themeMusic.volume = 1
+    }, 2000);
+    //new div cover
+  },
+  wrongAnswer() {
+    negSound.play()
   }
 }

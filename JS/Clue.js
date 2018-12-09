@@ -10,19 +10,23 @@ class Clue {
       this.player = 0;
     } 
     if ( round.currentClues[this.answerplace].answer !== input ) {
-     game.players[this.player].score  -= round.currentClues[this.answerplace].pointValue;
-     this.what++
-     if(this.guessCount === 3 ) {
-      alert("hello world yall all wrong")
-     }
-     domUpdates.displayScores()
+      game.players[this.player].score  -= round.currentClues[this.answerplace].pointValue;
+      this.guessCount++
+      if(this.guessCount === 3 ) {
+        alert("hello world yall all wrong")
+        round.completedClues++
+        domUpdates.tearDownCard()//__________________---------
+      }
+      domUpdates.displayScores()
       this.player++
+      domUpdates.wrongAnswer()
     }
     if( round.currentClues[this.answerplace].answer ===  input ) {
       game.players[this.player].score  += round.currentClues[this.answerplace].pointValue;
       domUpdates.displayScores()
       domUpdates.tearDownCard()
       domUpdates.rightAnswer()
+      round.completedClues++
     } 
   }
 
@@ -41,11 +45,11 @@ class Clue {
         </form>
       </div>`)
     $('#board').append(div);
-    setTimeout(() => {
-    alert("time is up")
-  } , 10000)
+    // setTimeout(() => {
+    //   alert("time is up")
+    // } , 10000)
   }
-  } 
+} 
 
 
 if (typeof module !== 'undefined') {
