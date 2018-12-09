@@ -9,10 +9,9 @@ class Game {
 
   init() {
     //starts game
-    for (let i = 1; i < 4; i++) {
-      let player = new Player($(`.js-player${i}-name-input`).val());
-      this.players.push(player);
-    }
+    this.players.push(new Player($('.js-player1-name-input').val()));
+    this.players.push(new Player($('.js-player2-name-input').val()));
+    this.players.push(new Player($('.js-player3-name-input').val()));
     domUpdates.displayNames();
     domUpdates.displayScores();
     domUpdates.displayGame();
@@ -20,14 +19,15 @@ class Game {
   }
 
   parseData() {
-    let clues = data.clues;
+    let clues = (Object.values(data)[2])
 
-    this.data = (Object.keys(data.categories)).map((category, index) => {
+    this.data = (Object.keys(Object.values(data)[1])).map((category, index) => {
       let clueVal = []
-      let clue = clues.filter((clue) => {
-        return clue.categoryId === index + 1 
+      clues.forEach((clue) => {
+        if (clue.categoryId === index + 1) {
+          clueVal.push(clue)
+        }
       })
-      clueVal.push(clue)
       return { category, clues: clueVal }
     })
   }

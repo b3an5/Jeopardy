@@ -2,10 +2,10 @@ class Round {
   constructor() {
     //this.round = 0 moved this.round to game
     this.currentCategories = [],
-    this.currentClues = [],
-    this.inUseArr = [],
-    this.completedClues = 0,
-    this.completed = false
+      this.currentClues = [],
+      this.inUseArr = [],
+      this.completedClues = 0,
+      this.completed = false
   }
 
   grabCategories(fullData) {
@@ -15,15 +15,11 @@ class Round {
       this.inUseArr.push(category)
     }
 
-    this.inUseArr = this.inUseArr.reduce((acc, arr) => {
-      return acc.concat(arr)
-    }, [])
-
     this.inUseArr.forEach((inUse) => {
-      this.currentCategories.push(inUse.category);
+      this.currentCategories.push(inUse[0].category);
     })
 
-    this.inUseArr = this.inUseArr.reduce((acc, arr) => {return acc.concat(arr)}, [])
+    this.inUseArr = this.inUseArr.reduce((acc, arr) => { return acc.concat(arr) }, [])
 
     domUpdates.displayCat(this.currentCategories);
   }
@@ -31,23 +27,23 @@ class Round {
 
   // ---------------------------------
   grabClues() {
-     let thecluesforthegame = this.inUseArr.reduce((acc, clue) => {
+    let thecluesforthegame = this.inUseArr.reduce((acc, clue) => {
       acc.push(clue.clues)
       return acc
-      }, []).map((clue) => {
-    let cluess = clue
-    for (let i = cluess.length - 1; i > 0; i--) {
+    }, []).map((clue) => {
+      let cluess = clue
+      for (let i = cluess.length - 1; i > 0; i--) {
         const a = Math.floor(Math.random() * (i + 1));
         [cluess[i], cluess[a]] = [cluess[a], cluess[i]];
-          }
-        return clue
+      }
+      return clue
     })
 
     let theFourClue = thecluesforthegame.map((clue) => {
       let clueSets = []
-          for(let i=0; i<4; i++) {
-            clueSets.push(clue.find((clue, index) => clue.pointValue === ((i + 1) * 100) ))
-          }
+      for (let i = 0; i < 4; i++) {
+        clueSets.push(clue.find((clue, index) => clue.pointValue === ((i + 1) * 100)))
+      }
       return clueSets
     })
 

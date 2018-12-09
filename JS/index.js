@@ -10,17 +10,18 @@ $('.start-button').on('click', (e) => {
   round = new Round()
   round.grabCategories(game.data);
   round.grabClues()
-  round.displayClue() 
+  round.displayClue()
 })
 
-$('.cards-value').on('click', function(event) {
-   clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
-    clue.answerplace = $('.cards-value').index($(event.target));
+$('.cards-value').on('click', function (event) {
+  clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
+  clue.answerplace = $('.cards-value').index($(event.target));
 });
 
 $(window).on('click', (e) => {
   e.preventDefault();
- if ($(event.target).hasClass('clue-button')) {
-  console.log($('.clue-input').val())
+  if ($(event.target).hasClass('clue-button')) {
+    console.log($('.clue-input').val())
     clue.checkAnswer($('.clue-input').val());
-}})
+  }
+})
