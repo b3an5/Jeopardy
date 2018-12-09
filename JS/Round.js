@@ -2,6 +2,7 @@ class Round {
   constructor() {
     //this.round = 0 moved this.round to game
     this.currentCategories = [],
+    this.currentClues = [],
     this.inUseArr = [],
     this.completedClues = 0,
     this.completed = false
@@ -22,8 +23,50 @@ class Round {
       this.currentCategories.push(inUse.category);
     })
 
+    this.inUseArr = this.inUseArr.reduce((acc, arr) => {return acc.concat(arr)}, [])
+
     domUpdates.displayCat(this.currentCategories);
   }
+
+
+  // ---------------------------------
+  grabClues() {
+     let thecluesforthegame = this.inUseArr.reduce((acc, clue) => {
+      acc.push(clue.clues)
+      return acc
+      }, []).map((clue) => {
+    let cluess = clue
+    for (let i = cluess.length - 1; i > 0; i--) {
+        const a = Math.floor(Math.random() * (i + 1));
+        [cluess[i], cluess[a]] = [cluess[a], cluess[i]];
+          }
+        return clue
+    })
+
+    let theFourClue = thecluesforthegame.map((clue) => {
+      let clueSets = []
+          for(let i=0; i<4; i++) {
+            clueSets.push(clue.find((clue, index) => clue.pointValue === ((i + 1) * 100) ))
+          }
+      return clueSets
+    })
+
+    this.currentClues = theFourClue.reduce((acc, hello) => {
+      return acc.concat(hello)
+    }, []).sort((clueA, clueB) => {
+      return clueA.pointValue - clueB.pointValue
+    })
+  }
+
+  displayClue() {
+    console.log($('.cards-value'))
+    $('.cards-value').each((index, clue) => {
+      $(clue).text(this.currentClues[index].pointValue * game.round);
+    })
+  }
+
+
+  //---------------------------------
 
   scoreMultipy() {
     if (Game.round === 1) {
