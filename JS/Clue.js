@@ -34,7 +34,7 @@ class Clue {
       `<div class="popup">
         <p class="clue-value">${some.question}</p>
         <form class="clue-form">
-          <label> What is 
+          <label  class="clue-label"> What is 
             <input type="text" class="clue-input">?
           </label>
           <button class="clue-button">enter</button>
