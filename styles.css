@@ -133,16 +133,35 @@ p {
 }
 
 #check {
-    z-index: 9;
-    color: red;
-    position: absolute;
-    display: none;
-    width: 80%;
-    height: 80%;
-    fill: green;
-    left: 0;
-    top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9;
+  color: red;
+  position: absolute;
+  display: none;
+  width: 80%;
+  height: 80%;
+  fill: green;
+  top: 0;
 }
+
+/* the clue card form */ 
+.clue-button {
+  display: block;
+  font-size: 2em;
+  border: 0;
+  width: 200px;
+}
+
+.clue-label {
+  display: block;
+  color: #ffffff;
+  padding: 10px;
+  background: none;
+  border-radius: 25px;
+}
+
+
 
 @keyframes static {
   2%, 10%, 18%, 26%, 34%, 42%, 50%, 58%, 66%, 74%, 82%, 90%, 98% {
