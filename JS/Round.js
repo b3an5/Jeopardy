@@ -31,16 +31,16 @@ class Round {
 
   // ---------------------------------
   grabClues() {
-     let thecluesforthegame = this.inUseArr.reduce((acc, clue) => {
+    let thecluesforthegame = this.inUseArr.reduce((acc, clue) => {
       acc.push(clue.clues)
       return acc
-      }, []).map((clue) => {
-    let cluess = clue
-    for (let i = cluess.length - 1; i > 0; i--) {
+    }, []).map((clue) => {
+      let cluess = clue
+      for (let i = cluess.length - 1; i > 0; i--) {
         const a = Math.floor(Math.random() * (i + 1));
         [cluess[i], cluess[a]] = [cluess[a], cluess[i]];
-          }
-        return clue
+      }
+      return clue
     })
 
     let theFourClue = thecluesforthegame.map((clue) => {

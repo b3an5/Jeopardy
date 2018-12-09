@@ -14,8 +14,8 @@ $('.start-button').on('click', (e) => {
 })
 
 $('.cards-value').on('click', function(event) {
-   clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
-    clue.answerplace = $('.cards-value').index($(event.target));
+  clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
+  clue.answerplace = $('.cards-value').index($(event.target));
 });
 
 $(window).on('click', (e) => {
