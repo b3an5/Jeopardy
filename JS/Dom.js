@@ -3,19 +3,19 @@ let domUpdates = {
     $('.form').css('display', 'none');
     $('#tv-frame').css('animation', 'tvframe 5s');
     setTimeout(() => {
-    $('#splash-page').css('display', 'none');
-      }, 2000);
+      $('#splash-page').css('display', 'none');
+    }, 2000);
     $('.hidden').css('display', 'block');
   },
   displayNames() {
-    $('#js-player1-name').text(game.players[0].name);
-    $('#js-player2-name').text(game.players[1].name);
-    $('#js-player3-name').text(game.players[2].name);
+    for (let i = 0; i < 3; i++) {
+      $(`#js-player${i + 1}-name`).text(game.players[i].name);
+    }
   },
   displayScores() {
-    $('#js-player1-score').text(game.players[0].score);
-    $('#js-player2-score').text(game.players[1].score);
-    $('#js-player3-score').text(game.players[2].score);
+    for (let i = 0; i < 3; i++) {
+      $(`#js-player${i + 1}-score`).text(game.players[i].score);
+    }
   },
   displayGame() {
     $('#one').css({'animation' : 'card 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both', 'animation-delay' : '3s'})

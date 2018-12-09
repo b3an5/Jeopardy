@@ -15,8 +15,12 @@ class Round {
       this.inUseArr.push(category)
     }
 
+    this.inUseArr = this.inUseArr.reduce((acc, arr) => {
+      return acc.concat(arr)
+    }, [])
+
     this.inUseArr.forEach((inUse) => {
-      this.currentCategories.push(inUse[0].category);
+      this.currentCategories.push(inUse.category);
     })
 
     this.inUseArr = this.inUseArr.reduce((acc, arr) => {return acc.concat(arr)}, [])
