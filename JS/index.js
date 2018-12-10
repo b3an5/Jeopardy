@@ -1,6 +1,7 @@
 let game = new Game();
 let clue = new Clue();
 let round;
+let dailyDoubleClue;
 
 let dailyDoubleSound = new Audio('./sound/DD.mp3');
 let negSound = new Audio('./sound/negative.mp3');
@@ -30,8 +31,14 @@ $('.start-button').on('click', (e) => {
 
 
 $('.cards-value').on('click', function(event) {
-  clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
-  clue.answerplace = $('.cards-value').index($(event.target));
+  if(round.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
+    dailyDoubleClue = round.currentClues[$('.cards-value').index($(event.target))]
+    console.log(dailyDoubleClue)
+    clue.dailyDoublePopup()
+  } else {
+    clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
+    clue.answerplace = $('.cards-value').index($(event.target));
+  }
 });
 
 $(window).on('click', (e) => {
@@ -39,5 +46,13 @@ $(window).on('click', (e) => {
   if ($(event.target).hasClass('clue-button')) {
     clue.checkAnswer($('.clue-input').val());
     round.changeRound();
+  }})
+
+
+$(window).on('click', (e) => {
+  e.preventDefault();
+  if ($(event.target).hasClass('dd-button')) {
+    console.log(dailyDoubleClue)
+    clue.takeInWager();
   }
 })

@@ -87,6 +87,7 @@ class Round {
     for (let i = 0; i < game.round; i++) {
       let randomIndex = Math.floor(Math.random() * 16);
       this.currentClues[randomIndex].categoryId = true;
+      console.log(randomIndex)
     }
   }
 }
