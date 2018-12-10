@@ -25,7 +25,7 @@ class Clue {
     }
     domUpdates.displayTurn(this.player)
     if( round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase() ) {
-      game.players[this.player].score  +=   $('.dd-input').val()  || round.currentClues[this.answerplace].pointValue;
+      game.players[this.player].score  +=   parseInt($('.dd-input').val())  || round.currentClues[this.answerplace].pointValue;
       domUpdates.displayScores()
       domUpdates.tearDownCard()
       domUpdates.rightAnswer()
@@ -35,7 +35,7 @@ class Clue {
     } 
   }
   takeInWager() {
-    if(game.players[this.player].score >=  $('.dd-input').val()  ||   round.currentClues[14].pointValue >= $('.dd-input').val()) {
+    if(game.players[this.player].score >=  parseInt($('.dd-input').val())  ||   round.currentClues[14].pointValue >= $('.dd-input').val()) {
       console.log("wage accepted")
 
       this.cluePopup(dailyDoubleClue)

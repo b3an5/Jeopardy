@@ -33,7 +33,7 @@ $('.start-button').on('click', (e) => {
 $('.cards-value').on('click', function(event) {
   if(round.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
     dailyDoubleClue = round.currentClues[$('.cards-value').index($(event.target))]
-    console.log(dailyDoubleClue)
+    clue.answerplace = $('.cards-value').index($(event.target))
     clue.dailyDoublePopup()
   } else {
     clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
