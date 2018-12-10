@@ -44,9 +44,10 @@ class Clue {
         </form>
       </div>`)
     $('#board').append(div);
-    // setTimeout(() => {
-    //   alert("time is up")
-    // } , 10000)
+    setTimeout(() => {
+      domUpdates.wrongAnswer();
+      this.player++;
+    } , 10000)
   }
 
   dailyDoublePopup() {

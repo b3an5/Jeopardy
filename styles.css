@@ -154,11 +154,19 @@ p {
 }
 
 .clue-label {
+  text-align: center;
   display: block;
   color: #ffffff;
   padding: 10px;
   background: none;
   border-radius: 25px;
+}
+
+
+/* this is the card cover */
+
+.card-cover {
+  display: block;
 }
 
 

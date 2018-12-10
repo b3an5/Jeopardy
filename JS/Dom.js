@@ -44,8 +44,8 @@ let domUpdates = {
   },
   rightAnswer() {
     setTimeout( () => {
-      $('#check').css('display', 'block') 
-      posSound.play()
+      $('#check').css('display', 'block');
+      posSound.play();
       themeMusic.volume = 0.6
     }, 1000)
     setTimeout(() => {
@@ -55,6 +55,10 @@ let domUpdates = {
     //new div cover
   },
   wrongAnswer() {
+    $('#check').css('display', 'block');
     negSound.play()
+    setTimeout(() => {
+      $('#check').hide();
+    }, 1000)
   }
 }
