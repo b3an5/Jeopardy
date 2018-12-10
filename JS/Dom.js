@@ -17,6 +17,10 @@ let domUpdates = {
       $(`#js-player${i + 1}-score`).text(game.players[i].score);
     }
   },
+  displayTurn(index = 0) {
+    $('.podium').css('background-color', 'blue')
+    $('.podium').eq(index).css('background-color', 'red')
+  },
   displayGame() {
     $('#one').css({'animation' : 'card 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both', 'animation-delay' : '3s'})
     $('#two, #five').css({'animation' : 'card 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both', 'animation-delay' : '3.2s'})
@@ -60,5 +64,9 @@ let domUpdates = {
     setTimeout(() => {
       $('#check').hide();
     }, 1000)
+  },
+  clueDisable(index) {
+    $('.card-cover').eq(index).hide()
   }
+
 }

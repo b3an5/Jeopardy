@@ -6,27 +6,32 @@ class Clue {
     this.guessCount = 0;
   }
   checkAnswer(input) {
-    if( 'hello' != input && this.player === 3) {
-      this.player = 0;
-    } 
     if ( round.currentClues[this.answerplace].answer !== input ) {
       game.players[this.player].score  -= round.currentClues[this.answerplace].pointValue;
       this.guessCount++
+      domUpdates.displayScores()
+      domUpdates.wrongAnswer()
+      domUpdates.clueDisable(this.answerplace)
+      this.player++
       if(this.guessCount === 3 ) {
         alert("hello world yall all wrong")
         round.completedClues++
-        domUpdates.tearDownCard()//__________________---------
+        domUpdates.tearDownCard()
+        this.guessCount = 0;
       }
-      domUpdates.displayScores()
-      this.player++
-      domUpdates.wrongAnswer()
     }
+    if ( this.player === 3) {
+      this.player = 0;
+    }
+    domUpdates.displayTurn(this.player)
     if( round.currentClues[this.answerplace].answer ===  input ) {
       game.players[this.player].score  += round.currentClues[this.answerplace].pointValue;
       domUpdates.displayScores()
       domUpdates.tearDownCard()
       domUpdates.rightAnswer()
       round.completedClues++
+      this.guessCount = 0;
+      domUpdates.clueDisable(this.answerplace)
     } 
   }
 
@@ -44,10 +49,10 @@ class Clue {
         </form>
       </div>`)
     $('#board').append(div);
-    setTimeout(() => {
-      domUpdates.wrongAnswer();
-      this.player++;
-    } , 10000)
+    // setTimeout(() => {
+    //   domUpdates.wrongAnswer();
+    //   this.player++;
+    // } , 10000)
   }
 
   dailyDoublePopup() {

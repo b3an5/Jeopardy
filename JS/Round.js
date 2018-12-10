@@ -57,7 +57,6 @@ class Round {
   }
 
   displayClue() {
-    console.log($('.cards-value'))
     $('.cards-value').each((index, clue) => {
       $(clue).text(this.currentClues[index].pointValue * game.round);
     })

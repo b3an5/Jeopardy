@@ -15,6 +15,7 @@ class Game {
     domUpdates.displayNames();
     domUpdates.displayScores();
     domUpdates.displayGame();
+    domUpdates.displayTurn() 
     this.round++;
   }
 
@@ -41,6 +42,7 @@ class Game {
     round.grabCategories(game.data);
     round.grabClues()
     round.displayClue()
+    $('.card-cover').css('display', 'block')
     //run generate Board function in Board.js
   }
 
