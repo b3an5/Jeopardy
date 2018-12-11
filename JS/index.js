@@ -9,7 +9,6 @@ let negSound = new Audio('./sound/negative.mp3');
 let posSound = new Audio('./sound/positive.mp3');
 let themeMusic = new Audio('./sound/theme.mp3');
 
-
 function playLoopingAudio(theme) {
   theme.play();
   theme.addEventListener('ended', () => {
@@ -17,11 +16,11 @@ function playLoopingAudio(theme) {
   });
 }
 
-
 $('.start-button').on('click', (e) => {
   e.preventDefault();
   game.init();
   domUpdates.splash();
+  domUpdates.backgroundBox();
   game.parseData();
   round = new Round()
   round.grabCategories(game.data);
@@ -29,7 +28,6 @@ $('.start-button').on('click', (e) => {
   round.displayClue()
   playLoopingAudio(themeMusic)
 })
-
 
 $('.cards-value').on('click', function(event) {
   if(round.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
@@ -47,13 +45,12 @@ $(window).on('click', (e) => {
   if ($(event.target).hasClass('clue-button')) {
     clue.checkAnswer($('.clue-input').val());
     round.changeRound();
-  }})
-
+  }
+})
 
 $(window).on('click', (e) => {
   e.preventDefault();
   if ($(event.target).hasClass('dd-button')) {
-    console.log(dailyDoubleClue)
     clue.takeInWager();
   }
 })
