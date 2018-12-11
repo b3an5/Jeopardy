@@ -1,9 +1,16 @@
+html {
+  height: 100%;
+}
 
 body {
+  position: relative;
   margin: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(270deg, #5b28c5, #5b28c5, #00a1a7, #00a1a7, #5b28c5, #5b28c5);
+  background-size: 600% 600%;
   background-color: #7530ff;
+  animation: background 15s ease infinite;
 }
 
 form {
@@ -25,6 +32,8 @@ button {
 }
 
 label {
+  margin: 10px;
+  display: block;
   color: #ffffff;
   padding: 10px;
   background: linear-gradient(to right, #e600d7, #ff3743);
@@ -37,9 +46,9 @@ input {
 }
 
 h2 {
-  border: 2px solid #000000;
+  z-index: 4;
   padding: 20px;
-  margin: 0px;
+  margin: 5px 10px 0px 10px;
 }
 
 p {
@@ -50,17 +59,28 @@ p {
 
 #board-game {
   position: relative;
+  height: 55%
 }
 
 #board {
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 55%;
+  width: 80%;
+  align-items: center;
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
   margin: 0px auto;
 }
 
 #podium {
+  z-index: 3;
+  width: 100%;
+  text-align: center;
   display: none;
   position: absolute;
   left: 50%;
@@ -83,6 +103,18 @@ p {
   animation: static 2s;
 }
 
+#check {
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9;
+  color: red;
+  position: absolute;
+  display: none;
+  width: 80%;
+  height: 80%;
+  fill: green;
+  top: 0;
+}
 .clue-form {
   display: block;
   left: 0; 
@@ -92,7 +124,10 @@ p {
 }
 
 .popup {
-  height: 100%;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  height: 67%;
   width: 80%;
   margin: 5px auto;
   z-index: 5;
@@ -106,16 +141,20 @@ p {
 
 .podium {
   color: #ffffff;
-  border: 2px solid #000000;
-  padding: 10px 40px;
   text-align: center;
   display: inline-block;
   margin: 0px auto;
 }
 
 .form {
+  display: inline-block;
   text-align: center;
   padding-top: 20px;
+}
+
+#start {
+  text-align: center;
+  display: block;
 }
 
 .game-board-cards {
@@ -125,25 +164,12 @@ p {
   width: 20%;
   height: 100px;
   margin: 5px;
-  box-shadow: 2px 2px 5px #000000;
 }
 
 .hidden {
   display: none;
 }
 
-#check {
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 9;
-  color: red;
-  position: absolute;
-  display: none;
-  width: 80%;
-  height: 80%;
-  fill: green;
-  top: 0;
-}
 
 /* the clue card form */ 
 .clue-button {
@@ -218,7 +244,286 @@ p {
   }
   100% {
     width: 22%;
-    height: 100px;
+    height: 40%;
     opacity: 1;
+  }
+}
+
+@keyframes background { 
+  0%{background-position:0% 50%}
+  100%{background-position:100% 50%}
+}
+
+
+#one {
+  transform: skew(10deg, 0deg);
+}
+
+#two {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 7% 100%);
+  background-image: linear-gradient(to left, #2a5097, #540087);
+}
+
+#three {
+  clip-path: polygon(0 0, 100% 0%, 93% 100%, 0% 100%);
+  background-image: linear-gradient(to right, #2a5097, #00a1a7);
+}
+
+#four {
+  transform: skew(-10deg, 0deg);
+  background-color: #00a1a7;
+}
+
+#five {
+  transform: skew(5deg, 0deg) translate(15px);
+}
+
+#six {
+  clip-path: polygon(7% 0, 100% 0%, 100% 100%, 11% 100%);
+  background-image: linear-gradient(to left, #2a5097, #540087);
+}
+
+#seven {
+  clip-path: polygon(0 0, 93% 0%, 89% 100%, 0% 100%);
+  background-image: linear-gradient(to right, #2a5097, #00a1a7);
+}
+
+#eight {
+  transform: skew(-5deg, 0deg) translate(-15px);
+  background-color: #00a1a7;
+}
+
+#nine {
+  transform: translate(20px);
+}
+
+#ten {
+  clip-path: polygon(11% 0, 100% 0%, 100% 100%, 11% 100%);
+  background-image: linear-gradient(to left, #2a5097, #540087);
+}
+
+#eleven {
+  clip-path: polygon(0 0, 89% 0%, 89% 100%, 0% 100%);
+  background-image: linear-gradient(to right, #2a5097, #00a1a7);
+}
+
+#twelve {
+  transform: translate(-20px);
+  background-color: #00a1a7;
+}
+
+#thirteen {
+  transform: skew(-5deg, 0deg) translate(15px);
+}
+
+#fourteen {
+  clip-path: polygon(11% 0, 100% 0%, 100% 100%, 7% 100%);
+  background-image: linear-gradient(to left, #2a5097, #540087);
+}
+
+#fifteen {
+  clip-path: polygon(0 0, 89% 0%, 93% 100%, 0% 100%);
+  background-image: linear-gradient(to right, #2a5097, #00a1a7);
+}
+
+#sixteen {
+  transform: skew(5deg, 0deg) translate(-15px);
+  background-color: #00a1a7;
+}
+
+#seventeen {
+  transform: skew(-10deg, 0deg);
+}
+
+#eighteen {
+  clip-path: polygon(7% 0, 100% 0%, 100% 100%, 0% 100%);
+  background-image: linear-gradient(to left, #2a5097, #540087);
+}
+
+#nineteen {
+  clip-path: polygon(0 0, 93% 0%, 100% 100%, 0% 100%);
+  background-image: linear-gradient(to right, #2a5097, #00a1a7);
+}
+
+#twenty {
+  transform: skew(10deg, 0deg);
+  background-color: #00a1a7;
+}
+
+/*.box { 
+  animation: boxanim 8s ease-in infinite
+ }*/
+
+.box1 {
+  position: absolute;
+  background-color: #ffa100;
+  left: 3.5%;
+  top: 3.5%;
+  width: 100px;
+  height: 100px;
+}
+
+.box2 {
+  position: absolute;
+  background-color: #7530ff;
+  left: 8%;
+  top: 25%;
+  width: 100px;
+  height: 100px;
+}
+
+.box3 {
+  position: absolute;
+  background-color: #16c;
+  left: 10%;
+  top: 55%;
+  width: 100px;
+  height: 100px;
+}
+
+.box4 {
+  position: absolute;
+  background-color: #ffa100;
+  left: 1.75%;
+  top: 70%;
+  width: 100px;
+  height: 100px;
+}
+
+.box5 {
+  position: absolute;
+  background-color: #7530ff;
+  left: 24%;
+  top: 20%;
+  width: 100px;
+  height: 100px;
+}
+
+.box6 {
+  position: absolute;
+  background-color: #16c;
+  left: 41%;
+  top: 10%;
+  width: 100px;
+  height: 100px;
+}
+
+.box7 {
+  position: absolute;
+  background-color: #ffa100;
+  left: 38%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.box8 {
+  position: absolute;
+  background-color: #7530ff;
+  left: 27.5%;
+  top: 65%;
+  width: 100px;
+  height: 100px;
+}
+
+.box9 {
+  position: absolute;
+  background-color: #16c;
+  left: 27.5%;
+  top: 80%;
+  width: 100px;
+  height: 100px;
+}
+
+.box10 {
+  position: absolute;
+  background-color: #ffa100;
+  left:  41%;
+  top: 90%;
+  width: 100px;
+  height: 100px;
+}
+
+.box11 {
+  position: absolute;
+  background-color: #7530ff;
+  left:  58%;
+  top: 35%;
+  width: 100px;
+  height: 100px;
+}
+
+.box12 {
+  position: absolute;
+  background-color: #16c;
+  left:  58%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.box13 {
+  position: absolute;
+  background-color: #ffa100;
+  left:  55%;
+  top: 70%;
+  width: 100px;
+  height: 100px;
+}
+
+.box14 {
+  position: absolute;
+  background-color: #7530ff;
+  left:  66%;
+  top: 5%;
+  width: 100px;
+  height: 100px;
+}
+
+.box15 {
+  position: absolute;
+  background-color: #ffa100;
+  left:  72%;
+  top: 35%;
+  width: 100px;
+  height: 100px;
+}
+
+.box16 {
+  position: absolute;
+  background-color: #16c;
+  left:  93%;
+  top: 25%;
+  width: 100px;
+  height: 100px;
+}
+
+.box17 {
+  position: absolute;
+  background-color: #7530ff;
+  left:  76%;
+  top: 80%;
+  width: 100px;
+  height: 100px;
+}
+
+.box18 {
+  position: absolute;
+  background-color: #ffa100;
+  left:  90%;
+  top: 70%;
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes boxanim {
+  0% {
+    transform: translate( 0px, 0px);
+  }
+  50% {
+    transform: translate( 0px, 20px);
+  }
+  100% {
+    transform: translate( 0px, 0px);
   }
 }

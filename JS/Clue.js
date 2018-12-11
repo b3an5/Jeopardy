@@ -37,7 +37,6 @@ class Clue {
   takeInWager() {
     if(game.players[this.player].score >=  parseInt($('.dd-input').val())  ||   round.currentClues[14].pointValue >= $('.dd-input').val()) {
       console.log("wage accepted")
-
       this.cluePopup(dailyDoubleClue)
     }else {
       console.log('wage now accepted')
@@ -56,7 +55,7 @@ class Clue {
           <button class="clue-button">enter</button>
         </form>
       </div>`)
-    $('#board').append(div);
+    $('body').append(div);
     // setTimeout(() => {
     //   domUpdates.wrongAnswer();
     //   this.player++;
@@ -75,7 +74,6 @@ class Clue {
     $('#board').append(div);
   }
 } 
-
 
 if (typeof module !== 'undefined') {
   module.exports = Clue;

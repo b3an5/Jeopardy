@@ -18,8 +18,9 @@ let domUpdates = {
     }
   },
   displayTurn(index = 0) {
-    $('.podium').css('background-color', 'blue')
-    $('.podium').eq(index).css('background-color', 'red')
+    $('h2').css('background-image', 'linear-gradient(to bottom right, #a9afc7, #4e5174)');
+    $('h2').eq((index * 2)+1 ).css('background-image', 'linear-gradient(to bottom right, #a9afc7, #ffa100');
+    $('h2').eq(index * 2 ).css('background-image', 'linear-gradient(to bottom right, #a9afc7, #ffa100');
   },
   displayGame() {
     $('#one').css({'animation' : 'card 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both', 'animation-delay' : '3s'})
@@ -44,7 +45,6 @@ let domUpdates = {
     setTimeout(() => {
       $('.popup').remove();
     }, 1000)
-
   },
   rightAnswer() {
     setTimeout( () => {
@@ -56,7 +56,6 @@ let domUpdates = {
       $('#check').hide()
       themeMusic.volume = 1
     }, 2000);
-    //new div cover
   },
   wrongAnswer() {
     $('#check').css('display', 'block');
@@ -67,6 +66,12 @@ let domUpdates = {
   },
   clueDisable(index) {
     $('.card-cover').eq(index).hide()
+  },
+  backgroundBox() {
+    $('.box').each((index, box) => {
+      let rand = (Math.random() * 10);
+      $(box).css({'animation': 'boxanim 8s ease-in infinite', 'animation-delay': `-${rand}s`})
+    })
   }
 
 }
