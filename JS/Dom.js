@@ -72,6 +72,15 @@ let domUpdates = {
       let rand = (Math.random() * 10);
       $(box).css({'animation': 'boxanim 8s ease-in infinite', 'animation-delay': `-${rand}s`})
     })
+  },
+  displayWinner(player) {
+    let div = `
+    <div>
+      <h1>CoNgRaTuLaTiOnS!!!!!</h1>
+      <h1>${player.name}</h1>
+      <h1>YoU WiN!!!!</h1>
+    </div>`
+    $('#board').append(div);
   }
 
 }

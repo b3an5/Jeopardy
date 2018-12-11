@@ -54,3 +54,10 @@ $(window).on('click', (e) => {
     clue.takeInWager();
   }
 })
+
+$(window).on('click', (e) => {
+  e.preventDefault();
+  if ($(event.target).hasClass('round3-button')) {
+    round3.checkAnswer();
+  }
+})

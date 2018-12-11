@@ -119,10 +119,41 @@ class Round3 extends Round {
             <input type="text" class="player-2-clue-input">?
             <input type="text" class="player-3-clue-input">?
           </label>
-          <button class="clue-button">enter</button>
+          <button class="round3-button">enter</button>
         </form>
       </div>`)
     $('#board').append(div);
+  }
+
+  checkAnswer() {
+    console.log('input', $('.player-1-clue-input').val())
+    console.log('answer', this.bonusQuestion.answer)
+    console.log('wager', parseInt($('.player-3-wager-input').val()))
+    if ($('.player-1-clue-input').val() === this.bonusQuestion.answer) {
+      console.log(game.players[0])
+      game.players[0].score += parseInt($('.player-1-wager-input').val())
+    } else if ($('.player-1-clue-input').val() !== this.bonusQuestion.answer) {
+      game.players[0].score -= parseInt($('.player-1-wager-input').val())
+    }
+    if ($('.player-2-clue-input').val() === this.bonusQuestion.answer) {
+      game.players[1].score += parseInt($('.player-2-wager-input').val())
+    } else if ($('.player-2-clue-input').val() !== this.bonusQuestion.answer) {
+      game.players[1].score -= parseInt($('.player-2-wager-input').val())
+    }
+    if ($('.player-3-clue-input').val() === this.bonusQuestion.answer) {
+      game.players[2].score += parseInt($('.player-3-wager-input').val())
+    } else if ($('.player-3-clue-input').val() !== this.bonusQuestion.answer) {
+      game.players[2].score -= parseInt($('.player-3-wager-input').val())
+    }
+    domUpdates.displayScores();
+    this.decideWinner();
+  }
+  decideWinner() {
+    let sortedplayers = game.players.sort((a, b) => {
+      a.score - b.score
+    })
+    let winner = sortedplayers.shift()
+    domUpdates.dispayWinner(winner)
   }
 }
 

@@ -7,7 +7,7 @@ class Clue {
   }
   checkAnswer(input) {
     if ( round.currentClues[this.answerplace].answer.toLowerCase() !== input.toLowerCase() ) {
-      game.players[this.player].score  -= round.currentClues[this.answerplace].pointValue;
+      game.players[this.player].score  -= (round.currentClues[this.answerplace].pointValue * game.round);
       this.guessCount++
       domUpdates.displayScores()
       domUpdates.wrongAnswer()
@@ -25,7 +25,7 @@ class Clue {
     }
     domUpdates.displayTurn(this.player)
     if( round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase() ) {
-      game.players[this.player].score  +=   parseInt($('.dd-input').val())  || round.currentClues[this.answerplace].pointValue;
+      game.players[this.player].score  +=   parseInt($('.dd-input').val())  || (round.currentClues[this.answerplace].pointValue * game.round);
       domUpdates.displayScores()
       domUpdates.tearDownCard()
       domUpdates.rightAnswer()
