@@ -1,6 +1,7 @@
 let game = new Game();
 let clue = new Clue();
 let round;
+let round3;
 let dailyDoubleClue;
 
 let dailyDoubleSound = new Audio('./sound/DD.mp3');

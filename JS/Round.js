@@ -76,13 +76,15 @@ class Round {
   }
 
   changeRound() {
-    if (this.completedClues === 16) {
+    if (this.completedClues === 16 && game.round === 2) {
+      round3 = new Round3;
+      round3.createCard();
+    } else if (this.completedClues === 16 ) {
       game.endRound()
       game.startRound()
       this.completedClues = 0
     }
   }
-
   makeDailyDouble() {
     for (let i = 0; i < game.round; i++) {
       let randomIndex = Math.floor(Math.random() * 16);
@@ -95,7 +97,32 @@ class Round {
 class Round3 extends Round {
   constructor() {
     super()
-
+    this.bonusQuestion = game.data[1].clues.pop();
+  }
+  createCard() {
+    console.log('hiii')
+    let div = $(
+      `<div class="bonus">
+        <p class="clue-value">${this.bonusQuestion.question}</p>
+        <form class="clue-form">
+          <label  class="wager-label"> player 1 Make Your Wager!
+          <input type="text" class="player-1-wager-input">
+          </label>
+        <label  class="wager-label"> player 2 Make Your Wager!
+          <input type="text" class="player-2-wager-input">
+        </label>
+        <label  class="wager-label"> player 3 Make Your Wager!
+          <input type="text" class="player-3-wager-input">
+        </label>
+          <label  class="clue-label"> What is 
+          <input type="text" class="player-1-clue-input">?
+            <input type="text" class="player-2-clue-input">?
+            <input type="text" class="player-3-clue-input">?
+          </label>
+          <button class="clue-button">enter</button>
+        </form>
+      </div>`)
+    $('#board').append(div);
   }
 }
 
