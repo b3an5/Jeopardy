@@ -61,3 +61,8 @@ $(window).on('click', (e) => {
     round3.checkAnswer();
   }
 })
+
+$('.reset').on('click', (e) => {
+  e.preventDefault();
+  game.reset();
+})

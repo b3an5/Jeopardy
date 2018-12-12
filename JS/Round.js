@@ -154,6 +154,7 @@ class Round3 extends Round {
       a.score - b.score
     })
     let winner = sortedplayers.shift()
+    domUpdates.tearDownCard();
     domUpdates.displayWinner(winner)
   }
 }

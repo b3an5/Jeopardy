@@ -36,10 +36,10 @@ let domUpdates = {
     }, 2000 )
   },
   displayCat(cats) {
-    $('#one').text(cats[0]);
-    $('#two').text(cats[1]);
-    $('#three').text(cats[2]);
-    $('#four').text(cats[3]);
+    $('#one').text(cats[0].split(/(?=[A-Z])/).join(' '));
+    $('#two').text(cats[1].split(/(?=[A-Z])/).join(' '));
+    $('#three').text(cats[2].split(/(?=[A-Z])/).join(' '));
+    $('#four').text(cats[3].split(/(?=[A-Z])/).join(' '));
   },
   tearDownCard() {
       $('.popup').remove();
@@ -79,12 +79,12 @@ let domUpdates = {
   },
   displayWinner(player) {
     let div = `
-    <div>
+    <div class="popup">
       <h1>CoNgRaTuLaTiOnS!!!!!</h1>
       <h1>${player.name}</h1>
       <h1>YoU WiN!!!!</h1>
     </div>`
-    $('#board').append(div);
+    $('body').append(div);
   },
   displayRound() {
     let div = $(`
@@ -95,5 +95,13 @@ let domUpdates = {
       `)
     console.log('dom displayRound')
     this.tearDownCardTime()
-  }
+  },
+  splashReset() {
+    $('.form').css('display', 'block');
+    $('#tv-frame').css('animation', 'none');
+    $('#splash-page').css('display', 'block');
+    $('.hidden').css('display', 'none');
+    $('#podium').css('display', 'none')
+    $('.card-cover').css('display', 'block');
+  },
 }

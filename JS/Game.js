@@ -9,6 +9,8 @@ class Game {
 
   init() {
     //starts game
+    // let playernames = domUpdates.getplayerNames();
+    //playerNames => [theo, kristen, brit]
     this.players.push(new Player($('.js-player1-name-input').val()));
     this.players.push(new Player($('.js-player2-name-input').val()));
     this.players.push(new Player($('.js-player3-name-input').val()));
@@ -51,8 +53,11 @@ class Game {
   }
 
   reset() {
-    //Round.round = 0
-    //resets game 
+    this.round = 0;
+    clue.player = 0;
+    game = new Game();
+    domUpdates.splashReset()
+    domUpdates.tearDownCard();
   }
   random() {
     //use to create random number for the game

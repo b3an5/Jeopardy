@@ -62,7 +62,6 @@ h2 {
 p {
   color: #ffffff;
   text-align: center;
-  font-size: 2em; 
  }
 
 #board-game {
@@ -177,6 +176,8 @@ p {
 }
 
 .game-board-cards {
+  text-transform: capitalize;
+  font-size: 2em;
   color: #ffffff;
   text-align: center;
   background-color: indigo;
@@ -187,6 +188,12 @@ p {
 
 .hidden {
   display: none;
+}
+
+.reset {
+  position: absolute;
+  bottom: 5%;
+  z-index: 10;
 }
 
 
