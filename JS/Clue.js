@@ -4,19 +4,21 @@ class Clue {
     this.answerplace = 0; 
     this.player = 0;
     this.guessCount = 0;
+    this.wager;
   }
   checkAnswer(input) {
     if ( round.currentClues[this.answerplace].answer.toLowerCase() !== input.toLowerCase() ) {
-      game.players[this.player].score  -= (round.currentClues[this.answerplace].pointValue * game.round);
+      game.players[this.player].score -= parseInt(this.wager) || (round.currentClues[this.answerplace].pointValue * game.round);
+      this.wager = undefined;
       this.guessCount++
       domUpdates.displayScores()
       domUpdates.wrongAnswer()
       domUpdates.clueDisable(this.answerplace)
       this.player++
       if(this.guessCount === 3 ) {
-        alert("hello world yall all wrong")
-        round.completedClues++
         domUpdates.tearDownCard()
+        this.rightAnswer()
+        round.completedClues++
         this.guessCount = 0;
       }
     }
@@ -25,7 +27,7 @@ class Clue {
     }
     domUpdates.displayTurn(this.player)
     if( round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase() ) {
-      game.players[this.player].score  +=   parseInt($('.dd-input').val())  || (round.currentClues[this.answerplace].pointValue * game.round);
+      game.players[this.player].score += parseInt(this.wager) || (round.currentClues[this.answerplace].pointValue * game.round)
       domUpdates.displayScores()
       domUpdates.tearDownCard()
       domUpdates.rightAnswer()
@@ -35,11 +37,13 @@ class Clue {
     } 
   }
   takeInWager() {
-    if(game.players[this.player].score >=  parseInt($('.dd-input').val())  ||   round.currentClues[14].pointValue >= $('.dd-input').val()) {
+    if(game.players[this.player].score >=  $('.dd-input').val() ||   round.currentClues[14].pointValue >= $('.dd-input').val()) {
+      this.wager = $('.dd-input').val();
       console.log("wage accepted")
+      domUpdates.tearDownCard();
       this.cluePopup(dailyDoubleClue)
     }else {
-      console.log('wage now accepted')
+      console.log('wage not accepted')
     }
   }
   cluePopup(some) {
@@ -49,29 +53,37 @@ class Clue {
       `<div class="popup">
         <p class="clue-value">${some.question}</p>
         <form class="clue-form">
-          <label  class="clue-label"> What is 
+          <label  class="popup-label clue-label"> What is 
             <input type="text" class="clue-input">?
           </label>
-          <button class="clue-button">enter</button>
+          <button class="popup-button clue-button">enter</button>
         </form>
       </div>`)
     $('body').append(div);
-    // setTimeout(() => {
-    //   domUpdates.wrongAnswer();
-    //   this.player++;
-    // } , 10000)
+  }
+
+  rightAnswer() {
+    let div = $(
+      `<div class='popup'>
+        <h2>answer is</h2>
+        <p class="answer-value">${round.currentClues[this.answerplace].answer}</p>
+      </div>`
+      )
+    $('body').append(div);
+    console.log("clue right answer")
+    domUpdates.tearDownCardTime();
   }
 
   dailyDoublePopup(index) {
     let div = $(
-      `<div class='dd-popup'>
+      `<div class='popup'>
         <h1>DAILY</h1>
         <h1>DOUBLE</h1>
-        <input class='dd-input' typle ='text' >
-        <button class='dd-button'>Enter</button>
+        <input class='popup-input dd-input' typle ='text' >
+        <button class='popup-button dd-button'>Enter</button>
       </div>`
       )
-    $('#board').append(div);
+    $('body').append(div);
   }
 } 
 

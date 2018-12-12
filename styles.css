@@ -23,7 +23,7 @@ form {
 }
 
 button {
-  margin: 0px auto;
+  margin: 10px auto;
   font-size: 2em;
   background-color: #ffa100;
   border-radius: 25px;
@@ -43,6 +43,14 @@ label {
 input {
   font-size: 1.5em;
   border: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5em;
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+  color: #FFFFFF;
 }
 
 h2 {
@@ -103,17 +111,28 @@ p {
   animation: static 2s;
 }
 
-#check {
+.check {
   left: 50%;
-  transform: translate(-50%, 0);
+  top: 80%;
+  transform: translate(-50%, -50%);
   z-index: 9;
-  color: red;
   position: absolute;
   display: none;
   width: 80%;
   height: 80%;
   fill: green;
-  top: 0;
+}
+
+.wrong {
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+  position: absolute;
+  display: none;
+  width: 80%;
+  height: 80%;
+  fill: red; 
 }
 .clue-form {
   display: block;
@@ -172,14 +191,14 @@ p {
 
 
 /* the clue card form */ 
-.clue-button {
+.popup-button {
   display: block;
   font-size: 2em;
   border: 0;
   width: 200px;
 }
 
-.clue-label {
+.popup-label {
   text-align: center;
   display: block;
   color: #ffffff;
@@ -188,14 +207,19 @@ p {
   border-radius: 25px;
 }
 
+.popup-input {
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
 
 /* this is the card cover */
 
 .card-cover {
   display: block;
 }
-
-
 
 @keyframes static {
   2%, 10%, 18%, 26%, 34%, 42%, 50%, 58%, 66%, 74%, 82%, 90%, 98% {
