@@ -42,26 +42,30 @@ let domUpdates = {
     $('#four').text(cats[3]);
   },
   tearDownCard() {
+      $('.popup').remove();
+  },
+  tearDownCardTime() {
+    console.log(" the actual function")
     setTimeout(() => {
       $('.popup').remove();
-    }, 1000)
+    }, 4000)
   },
   rightAnswer() {
     setTimeout( () => {
-      $('#check').css('display', 'block');
+      $('.check').css('display', 'block');
       posSound.play();
       themeMusic.volume = 0.6
-    }, 1000)
+    }, 500)
     setTimeout(() => {
-      $('#check').hide()
+      $('.check').hide()
       themeMusic.volume = 1
-    }, 2000);
+    }, 1500);
   },
   wrongAnswer() {
-    $('#check').css('display', 'block');
+    $('.wrong').css('display', 'block');
     negSound.play()
     setTimeout(() => {
-      $('#check').hide();
+      $('.wrong').hide();
     }, 1000)
   },
   clueDisable(index) {
@@ -81,6 +85,15 @@ let domUpdates = {
       <h1>YoU WiN!!!!</h1>
     </div>`
     $('#board').append(div);
+  },
+  displayRound() {
+    let div = $(`
+      <div class="popup">
+        <h1>round</h1>
+        <h1>${game.round}</h1>
+      </div
+      `)
+    console.log('dom displayRound')
+    this.tearDownCardTime()
   }
-
 }

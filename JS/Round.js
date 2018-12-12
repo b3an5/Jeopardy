@@ -82,6 +82,7 @@ class Round {
     } else if (this.completedClues === 16 ) {
       game.endRound()
       game.startRound()
+      domUpdates.displayRound()
       this.completedClues = 0
     }
   }
@@ -102,7 +103,7 @@ class Round3 extends Round {
   createCard() {
     console.log('hiii')
     let div = $(
-      `<div class="bonus">
+      `<div class="popup">
         <p class="clue-value">${this.bonusQuestion.question}</p>
         <form class="clue-form">
           <label  class="wager-label"> player 1 Make Your Wager!
@@ -122,7 +123,7 @@ class Round3 extends Round {
           <button class="round3-button">enter</button>
         </form>
       </div>`)
-    $('#board').append(div);
+    $('body').append(div);
   }
 
   checkAnswer() {
@@ -153,7 +154,7 @@ class Round3 extends Round {
       a.score - b.score
     })
     let winner = sortedplayers.shift()
-    domUpdates.dispayWinner(winner)
+    domUpdates.displayWinner(winner)
   }
 }
 
