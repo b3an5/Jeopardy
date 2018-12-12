@@ -126,9 +126,6 @@ class Round3 extends Round {
   }
 
   checkAnswer() {
-    console.log('input', $('.player-1-clue-input').val())
-    console.log('answer', this.bonusQuestion.answer)
-    console.log('wager', parseInt($('.player-3-wager-input').val()))
     if ($('.player-1-clue-input').val() === this.bonusQuestion.answer) {
       console.log(game.players[0])
       game.players[0].score += parseInt($('.player-1-wager-input').val())
