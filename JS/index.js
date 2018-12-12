@@ -22,42 +22,47 @@ $('.start-button').on('click', (e) => {
   domUpdates.splash();
   domUpdates.backgroundBox();
   game.parseData();
-  round = new Round()
+  round = new Round();
   round.grabCategories(game.data);
-  round.grabClues()
-  round.displayClue()
-  playLoopingAudio(themeMusic)
+  round.grabClues();
+  round.displayClue();
+  playLoopingAudio(themeMusic);
 })
 
 $('.cards-value').on('click', function(event) {
   if(round.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
-    dailyDoubleClue = round.currentClues[$('.cards-value').index($(event.target))]
-    clue.answerplace = $('.cards-value').index($(event.target))
-    clue.dailyDoublePopup()
+    dailyDoubleClue = round.currentClues[$('.cards-value').index($(event.target))];
+    clue.answerplace = $('.cards-value').index($(event.target));
+    domUpdates.displayDailyDouble();
   } else {
     clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
     clue.answerplace = $('.cards-value').index($(event.target));
   }
 });
 
-$(window).on('click', (e) => {
-  e.preventDefault();
+$(window).on('click', (event) => {
+  event.preventDefault();
   if ($(event.target).hasClass('clue-button')) {
     clue.checkAnswer($('.clue-input').val());
     round.changeRound();
   }
 })
 
-$(window).on('click', (e) => {
-  e.preventDefault();
+$(window).on('click', (event) => {
+  event.preventDefault();
   if ($(event.target).hasClass('dd-button')) {
     clue.takeInWager();
   }
 })
 
-$(window).on('click', (e) => {
-  e.preventDefault();
+$(window).on('click', (event) => {
+  event.preventDefault();
   if ($(event.target).hasClass('round3-button')) {
     round3.checkAnswer();
   }
+})
+
+$('.reset').on('click', (event) => {
+  event.preventDefault();
+  game.reset();
 })
