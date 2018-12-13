@@ -157,7 +157,7 @@ let domUpdates = {
   displayRoundThreeCard() {
     let div = $(
       `<div class="popup">
-        <p class="clue-value">${round3.bonusQuestion.question}</p>
+        <p class="clue-value">${round.bonusQuestion.question}</p>
         <form class="clue-form">
           <label  class="wager-label"> player 1 Make Your Wager!
           <input type="text" class="player-1-wager-input">

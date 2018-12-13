@@ -1,7 +1,6 @@
 let game = new Game();
 let clue = new Clue();
 let round;
-let round3;
 let dailyDoubleClue;
 
 let dailyDoubleSound = new Audio('./sound/DD.mp3');
@@ -58,7 +57,7 @@ $(window).on('click', (event) => {
 $(window).on('click', (event) => {
   event.preventDefault();
   if ($(event.target).hasClass('round3-button')) {
-    round3.checkAnswer();
+    round.checkAnswer();
   }
 })
 
