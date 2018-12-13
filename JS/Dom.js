@@ -23,6 +23,7 @@ let domUpdates = {
     $('h2').eq(index * 2 ).css('background-image', 'linear-gradient(to bottom right, #a9afc7, #ffa100');
   },
   displayGame() {
+    $('.title-section').css('animation', 'title 2s forwards')
     $('#one').css({'animation' : 'card 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both', 'animation-delay' : '3s'});
     $('#two, #five').css({'animation' : 'card 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both', 'animation-delay' : '3.2s'});
     $('#three, #six, #nine').css({'animation' : 'card 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both', 'animation-delay' : '3.4s'});
@@ -88,7 +89,7 @@ let domUpdates = {
   displayRound() {
     let div = $(`
       <div class="popup">
-        <h1>round</h1>
+        <h1>Round</h1>
         <h1>${game.round}</h1>
       </div
       `);
@@ -102,6 +103,9 @@ let domUpdates = {
     $('.hidden').css('display', 'none');
     $('#podium').css('display', 'none');
     $('.card-cover').css('display', 'block');
+    $('.form').css('display', 'inline-block');
+    $('#start').css('display', 'block');
+    $('.title-section').css('animation', 'none')
   },
   wagerRejection() {
     let div = $(`
@@ -147,6 +151,7 @@ let domUpdates = {
       </div>`
       );
     $('body').append(div);
+    dailyDoubleSound.play()
   },
   displayRoundThreeCard() {
     let div = $(
