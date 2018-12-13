@@ -26,7 +26,7 @@ class Clue {
       this.player = 0;
     }
     domUpdates.displayTurn(this.player)
-    if(round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase()) {
+    if (round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase()) {
       game.players[this.player].score += parseInt(this.wager) || (round.currentClues[this.answerplace].pointValue * game.round);
       domUpdates.displayScores();
       domUpdates.tearDownCard();
@@ -37,7 +37,7 @@ class Clue {
     } 
   }
   takeInWager() {
-    if(game.players[this.player].score >= $('.dd-input').val() || round.currentClues[14].pointValue >= $('.dd-input').val()) {
+    if (game.players[this.player].score >= $('.dd-input').val() || round.currentClues[14].pointValue >= $('.dd-input').val()) {
       this.wager = $('.dd-input').val();
       domUpdates.tearDownCard();
       this.cluePopup(dailyDoubleClue)
@@ -49,7 +49,7 @@ class Clue {
     this.question = some.question;
     this.answer = some.answer;
     domUpdates.displayCluePopup(some);
-   }
+  }
   rightAnswer() {
     domUpdates.displayRightAnswer();
     domUpdates.tearDownCardTime();

@@ -10,16 +10,16 @@ let domUpdates = {
   displayNames() {
     for (let i = 0; i < 3; i++) {
       $(`#js-player${i + 1}-name`).text(game.players[i].name);
-    };
+    }
   },
   displayScores() {
     for (let i = 0; i < 3; i++) {
       $(`#js-player${i + 1}-score`).text(game.players[i].score);
-    };
+    }
   },
   displayTurn(index = 0) {
     $('h2').css('background-image', 'linear-gradient(to bottom right, #a9afc7, #4e5174)');
-    $('h2').eq((index * 2)+1 ).css('background-image', 'linear-gradient(to bottom right, #a9afc7, #ffa100');
+    $('h2').eq((index * 2) + 1 ).css('background-image', 'linear-gradient(to bottom right, #a9afc7, #ffa100');
     $('h2').eq(index * 2 ).css('background-image', 'linear-gradient(to bottom right, #a9afc7, #ffa100');
   },
   displayGame() {
@@ -43,7 +43,7 @@ let domUpdates = {
     $('#four').text(cats[3].split(/(?=[A-Z])/).join(' '));
   },
   tearDownCard() {
-      $('.popup').remove();
+    $('.popup').remove();
   },
   tearDownCardTime() {
     setTimeout(() => {

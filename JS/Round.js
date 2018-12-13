@@ -15,7 +15,9 @@ class Round {
     this.inUseArr.forEach((inUse) => {
       this.currentCategories.push(inUse[0].category);
     })
-    this.inUseArr = this.inUseArr.reduce((acc, arr) => { return acc.concat(arr) }, []);
+    this.inUseArr = this.inUseArr.reduce((acc, arr) => {
+      return acc.concat(arr)
+    }, []);
     domUpdates.displayCat(this.currentCategories);
   }
   grabClues() {
@@ -33,7 +35,7 @@ class Round {
     let theFourClue = thecluesforthegame.map((clue) => {
       let clueSets = [];
       for (let i = 0; i < 4; i++) {
-        clueSets.push(clue.find((clue, index) => clue.pointValue === ((i + 1) * 100)));
+        clueSets.push(clue.find((clue) => clue.pointValue === ((i + 1) * 100)));
       }
       return clueSets;
     })
