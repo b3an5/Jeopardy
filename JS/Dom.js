@@ -135,11 +135,12 @@ let domUpdates = {
   displayRightAnswer() {
     let div = $(
       `<div class='popup'>
-        <h2>answer is</h2>
-        <p class="answer-value">${round.currentClues[this.answerplace].answer}</p>
+        <h4 class="answer-response">answer is</h4>
+        <p class="answer-value">${round.currentClues[clue.answerplace].answer}</p>
       </div>`
       );
     $('body').append(div);
+    this.tearDownCardTime()
   },
   displayDailyDouble() {
     let div = $(
