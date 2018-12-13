@@ -8,7 +8,10 @@ Our application is a three player game based on the popular TV show Jeopardy. Th
 ### Alternatively
 clone our repository and open our index.html file in your browser 
 
---------Pics go here--------------
+<img width="1437" alt="screen shot 2018-12-13 at 8 58 17 am" src="https://user-images.githubusercontent.com/40470660/49950604-5ac20300-feb5-11e8-925c-ca625599d8a7.png">
+
+<img width="1425" alt="screen shot 2018-12-13 at 8 58 42 am" src="https://user-images.githubusercontent.com/40470660/49950608-5bf33000-feb5-11e8-9b35-efdab80e84d7.png">
+
 
 ### Authors 
 - Theo Bean
