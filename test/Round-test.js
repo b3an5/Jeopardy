@@ -74,6 +74,6 @@ describe('Round Class', () => {
     game.parseData();
     round.grabCategories(game.data);
     game.endRound();
-    expect(round.inUseArr.length).to.equal(0)
+    expect(global.round.inUseArr.length).to.equal(0)
   })
 })
