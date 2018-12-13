@@ -94,7 +94,7 @@ class Round3 extends Round {
   }
   decideWinner() {
     let sortedplayers = game.players.sort((a, b) => {
-      a.score - b.score;
+      return b.score - a.score;
     })
     let winner = sortedplayers.shift();
     domUpdates.tearDownCard();
