@@ -151,6 +151,7 @@ let domUpdates = {
       </div>`
       );
     $('body').append(div);
+    dailyDoubleSound.play()
   },
   displayRoundThreeCard() {
     let div = $(
