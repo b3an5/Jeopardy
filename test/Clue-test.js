@@ -15,7 +15,7 @@ describe('Clue class', () => {
     let clue = new Clue();
     expect(clue.answerplace).to.equal(0);
   })
-  
+
   it('should have an inital value of player of 0', () => {
     let clue = new Clue();
     expect(clue.player).to.equal(0)
