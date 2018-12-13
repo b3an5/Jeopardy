@@ -18,3 +18,7 @@ clone our repository and open our index.html file in your browser
   -https://github.com/Inzurriaga
   
   - link to [project spec](http://frontend.turing.io/projects/jeopardy.html)
+  
+### collaboration instructions
+clone or fork the repository `cd` into the directory and run `npm install` to install testing and assertion libraries.
+any changes must involve tagging @Inzurriaga and @b3an5 on the pull request.
