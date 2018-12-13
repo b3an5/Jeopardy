@@ -57,17 +57,6 @@ describe('Round Class', () => {
     expect(round.currentClues.length).to.equal(16)
   })
 
-  it('should change round', () => {
-    let game = new Game();
-    let round = new Round();
-    game.parseData();
-    round.grabCategories(game.data)
-    round.grabClues();
-    round.completedClues = 16;
-    round.changeRound();
-    expect(game.round).to.equal(2)
-  })
-
   it('should reset the in use array when endRound is invoked', () => {
     let game = new Game();
     let round = new Round();
