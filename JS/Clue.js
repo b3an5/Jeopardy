@@ -17,9 +17,9 @@ class Clue {
       this.player++;
       if(this.guessCount === 3) {
         domUpdates.tearDownCard();
-        this.rightAnswer();
         round.completedClues++;
         this.guessCount = 0;
+        domUpdates.displayRightAnswer();
       }
     }
     if (this.player === 3) {
@@ -33,6 +33,7 @@ class Clue {
       domUpdates.rightAnswer();
       round.completedClues++;
       this.guessCount = 0;
+      this.wager = 0;
       domUpdates.clueDisable(this.answerplace);
     } 
   }

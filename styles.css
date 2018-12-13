@@ -154,6 +154,17 @@ p {
   bottom: none;
 }
 
+.answer-response {
+  color: #ffffff;
+  background-color: 0;
+  text-align: center;
+  font-size: 3em;
+}
+
+.answer-value {
+  font-size: 3em;
+}
+
 .popup {
   left: 50%;
   top: 45%;
