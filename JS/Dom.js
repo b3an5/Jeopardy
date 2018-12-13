@@ -10,12 +10,12 @@ let domUpdates = {
   displayNames() {
     for (let i = 0; i < 3; i++) {
       $(`#js-player${i + 1}-name`).text(game.players[i].name);
-    };
+    }
   },
   displayScores() {
     for (let i = 0; i < 3; i++) {
       $(`#js-player${i + 1}-score`).text(game.players[i].score);
-    };
+    }
   },
   displayTurn(index = 0) {
     $('h2').css('background-image', 'linear-gradient(to bottom right, #a9afc7, #4e5174)');
@@ -42,7 +42,7 @@ let domUpdates = {
     $('#four').text(cats[3].split(/(?=[A-Z])/).join(' '));
   },
   tearDownCard() {
-      $('.popup').remove();
+    $('.popup').remove();
   },
   tearDownCardTime() {
     setTimeout(() => {
@@ -134,7 +134,7 @@ let domUpdates = {
         <h2>answer is</h2>
         <p class="answer-value">${round.currentClues[this.answerplace].answer}</p>
       </div>`
-      );
+    );
     $('body').append(div);
   },
   displayDailyDouble() {
@@ -145,8 +145,9 @@ let domUpdates = {
         <input class='popup-input dd-input' typle ='text' >
         <button class='popup-button dd-button'>Enter</button>
       </div>`
-      );
+    );
     $('body').append(div);
+    dailyDoubleSound.play();
   },
   displayRoundThreeCard() {
     let div = $(

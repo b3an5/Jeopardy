@@ -30,7 +30,7 @@ $('.start-button').on('click', (e) => {
 })
 
 $('.cards-value').on('click', function(event) {
-  if(round.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
+  if (round.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
     dailyDoubleClue = round.currentClues[$('.cards-value').index($(event.target))];
     clue.answerplace = $('.cards-value').index($(event.target));
     domUpdates.displayDailyDouble();

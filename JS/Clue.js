@@ -15,7 +15,7 @@ class Clue {
       domUpdates.wrongAnswer()
       domUpdates.clueDisable(this.answerplace)
       this.player++
-      if(this.guessCount === 3 ) {
+      if (this.guessCount === 3 ) {
         domUpdates.tearDownCard()
         this.rightAnswer()
         round.completedClues++
@@ -26,7 +26,7 @@ class Clue {
       this.player = 0;
     }
     domUpdates.displayTurn(this.player)
-    if( round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase() ) {
+    if ( round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase() ) {
       game.players[this.player].score += parseInt(this.wager) || (round.currentClues[this.answerplace].pointValue * game.round)
       domUpdates.displayScores()
       domUpdates.tearDownCard()
@@ -37,12 +37,11 @@ class Clue {
     } 
   }
   takeInWager() {
-    if(game.players[this.player].score >=  $('.dd-input').val() ||   round.currentClues[14].pointValue >= $('.dd-input').val()) {
+    if (game.players[this.player].score >=  $('.dd-input').val() ||   round.currentClues[14].pointValue >= $('.dd-input').val()) {
       this.wager = $('.dd-input').val();
-      console.log("wage accepted")
       domUpdates.tearDownCard();
       this.cluePopup(dailyDoubleClue)
-    }else {
+    } else {
       console.log('wage not accepted')
     }
   }
@@ -68,9 +67,8 @@ class Clue {
         <h2>answer is</h2>
         <p class="answer-value">${round.currentClues[this.answerplace].answer}</p>
       </div>`
-      )
+    )
     $('body').append(div);
-    console.log("clue right answer")
     domUpdates.tearDownCardTime();
   }
 
@@ -82,7 +80,7 @@ class Clue {
         <input class='popup-input dd-input' typle ='text' >
         <button class='popup-button dd-button'>Enter</button>
       </div>`
-      )
+    )
     $('body').append(div);
   }
 } 
