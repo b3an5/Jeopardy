@@ -3,9 +3,13 @@ const expect = chai.expect;
 const spies = require('chai-spies')
 chai.use(spies);
 const Round = require('../js/Round.js');
+global.round = require('../js/Round.js');
 global.Game = require('../js/Game.js')
+global.game = require('../js/Game.js')
 global.data = require('../js/Data.js')
 global.domUpdates = require('../js/dom.js')
+
+
 
 
 describe('Round Class', () => {
@@ -47,25 +51,32 @@ describe('Round Class', () => {
     expect(round.currentCategories.length).to.equal(4)
   })
 
-  // it('should grab 16 clues comment out line 89 on round.js', () => {
-  //   let game = new Game();
-  //   let round = new Round();
-  //   game.parseData();
-  //   round.grabCategories(game.data)
-  //   round.grabClues();
-  //   expect(round.currentClues.length).to.equal(16)
-  // })
+  it('should grab 16 clues comment out line 89 on round.js', () => {
+    let game = new Game();
+    let round = new Round();
+    game.parseData();
+    round.grabCategories(game.data)
+    round.grabClues();
+    expect(round.currentClues.length).to.equal(16)
+  })
   
-  // it('should change round', () => {
-  //   let game = new Game();
-  //   let round = new Round();
-  //   game.parseData();
-  //   round.grabCategories(game.data)
-  //   round.grabClues();
-  //   round.completedClues = 16;
-  //   round.changeRound();
-  //   expect(game.round).to.equal(2)
-  // })
+  it('should change round', () => {
+    let game = new Game();
+    let round = new Round();
+    game.parseData();
+    round.grabCategories(game.data)
+    round.grabClues();
+    round.completedClues = 16;
+    round.changeRound();
+    expect(game.round).to.equal(2)
+  })
 
-
+  it('should reset the in use array when endRound is invoked', () => {
+    let game = new Game();
+    let round = new Round();
+    game.parseData();
+    round.grabCategories(game.data);
+    game.endRound();
+    expect(round.inUseArr.length).to.equal(0)
+  })
 })
