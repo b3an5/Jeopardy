@@ -1,6 +1,4 @@
 let game = new Game();
-let clue = new Clue();
-let round;
 let dailyDoubleClue;
 
 let dailyDoubleSound = new Audio('./sound/DD.mp3');
@@ -21,43 +19,42 @@ $('.start-button').on('click', (e) => {
   domUpdates.splash();
   domUpdates.backgroundBox();
   game.parseData();
-  round = new Round();
-  round.grabCategories(game.data);
-  round.grabClues();
-  round.displayClue();
+  game.roundClass.grabCategories(game.data);
+  game.roundClass.grabClues();
+  game.roundClass.displayClue();
   playLoopingAudio(themeMusic);
 })
 
 $('.cards-value').on('click', function(event) {
-  if (round.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
-    dailyDoubleClue = round.currentClues[$('.cards-value').index($(event.target))];
-    clue.answerplace = $('.cards-value').index($(event.target));
+  if (game.roundClass.currentClues[$('.cards-value').index($(event.target))].categoryId === true ) {
+    dailyDoubleClue = game.roundClass.currentClues[$('.cards-value').index($(event.target))];
+    game.clueClass.answerplace = $('.cards-value').index($(event.target));
     domUpdates.displayDailyDouble();
   } else {
-    clue.cluePopup(round.currentClues[$('.cards-value').index($(event.target))]);
-    clue.answerplace = $('.cards-value').index($(event.target));
+    game.clueClass.cluePopup(game.roundClass.currentClues[$('.cards-value').index($(event.target))]);
+    game.clueClass.answerplace = $('.cards-value').index($(event.target));
   }
 });
 
 $(window).on('click', (event) => {
   event.preventDefault();
   if ($(event.target).hasClass('clue-button')) {
-    clue.checkAnswer($('.clue-input').val());
-    round.changeRound();
+    game.clueClass.checkAnswer($('.clue-input').val());
+    game.roundClass.changeRound();
   }
 })
 
 $(window).on('click', (event) => {
   event.preventDefault();
   if ($(event.target).hasClass('dd-button')) {
-    clue.takeInWager();
+    game.clueClass.takeInWager();
   }
 })
 
 $(window).on('click', (event) => {
   event.preventDefault();
   if ($(event.target).hasClass('round3-button')) {
-    round.checkAnswer();
+    game.roundClass.checkAnswer();
   }
 })
 
