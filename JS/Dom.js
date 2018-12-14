@@ -136,7 +136,7 @@ let domUpdates = {
     let div = $(
       `<div class='popup'>
         <h4 class="answer-response">answer is</h4>
-        <p class="answer-value">${round.currentClues[clue.answerplace].answer}</p>
+        <p class="answer-value">${game.roundClass.currentClues[game.clueClass.answerplace].answer}</p>
       </div>`
       );
     $('body').append(div);
@@ -157,7 +157,7 @@ let domUpdates = {
   displayRoundThreeCard() {
     let div = $(
       `<div class="popup">
-        <p class="clue-value">${round.bonusQuestion.question}</p>
+        <p class="clue-value">${game.roundClass.bonusQuestion.question}</p>
         <form class="clue-form">
           <label  class="wager-label"> player 1 Make Your Wager!
           <input type="text" class="player-1-wager-input">

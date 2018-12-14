@@ -3,7 +3,7 @@ class Round {
     this.currentCategories = [];
     this.currentClues = [];
     this.inUseArr = [];
-    this.completedClues = 0
+    this.completedClues = 0;
   }
   grabCategories(fullData) {
     this.currentCategories = [];
@@ -25,10 +25,9 @@ class Round {
       acc.push(clue.clues);
       return acc;
     }, []).map((clue) => {
-      let cluess = clue;
-      for (let i = cluess.length - 1; i > 0; i--) {
+      for (let i = clue.length - 1; i > 0; i--) {
         const a = Math.floor(Math.random() * (i + 1));
-        [cluess[i], cluess[a]] = [cluess[a], cluess[i]];
+        [clue[i], clue[a]] = [clue[a], clue[i]];
       }
       return clue;
     })

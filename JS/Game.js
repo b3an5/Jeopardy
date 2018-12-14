@@ -6,6 +6,7 @@ class Game {
     this.data
     this.roundClass = new Round();
     this.round3Class;
+    this.clueClass = new Clue();
   }
   init() {
     this.players.push(new Player($('.js-player1-name-input').val()));
@@ -31,17 +32,17 @@ class Game {
   }
   startRound() {
     this.round ++
-    round.grabCategories(game.data);
-    round.grabClues();
-    round.displayClue();
+    game.roundClass.grabCategories(game.data);
+    game.roundClass.grabClues();
+    game.roundClass.displayClue();
     $('.card-cover').css('display', 'block');
   }
   endRound() {
-    round.inUseArr = [];
+    game.roundClass.inUseArr = [];
   }
   reset() {
     this.round = 0;
-    clue.player = 0;
+    game.clueClass.player = 0;
     game = new Game();
     domUpdates.splashReset();
     domUpdates.tearDownCard();

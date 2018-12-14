@@ -7,8 +7,8 @@ class Clue {
     this.wager;
   }
   checkAnswer(input) {
-    if (round.currentClues[this.answerplace].answer.toLowerCase() !== input.toLowerCase()) {
-      game.players[this.player].score -= parseInt(this.wager) || (round.currentClues[this.answerplace].pointValue * game.round);
+    if (game.roundClass.currentClues[this.answerplace].answer.toLowerCase() !== input.toLowerCase()) {
+      game.players[this.player].score -= parseInt(this.wager) || (game.roundClass.currentClues[this.answerplace].pointValue * game.round);
       this.wager = undefined;
       this.guessCount++;
       domUpdates.displayScores();
@@ -17,7 +17,7 @@ class Clue {
       this.player++;
       if(this.guessCount === 3) {
         domUpdates.tearDownCard();
-        round.completedClues++;
+        game.roundClass.completedClues++;
         this.guessCount = 0;
         domUpdates.displayRightAnswer();
       }
@@ -26,19 +26,19 @@ class Clue {
       this.player = 0;
     }
     domUpdates.displayTurn(this.player)
-    if (round.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase()) {
-      game.players[this.player].score += parseInt(this.wager) || (round.currentClues[this.answerplace].pointValue * game.round);
+    if (game.roundClass.currentClues[this.answerplace].answer.toLowerCase() ===  input.toLowerCase()) {
+      game.players[this.player].score += parseInt(this.wager) || (game.roundClass.currentClues[this.answerplace].pointValue * game.round);
       domUpdates.displayScores();
       domUpdates.tearDownCard();
       domUpdates.rightAnswer();
-      round.completedClues++;
+      game.roundClass.completedClues++;
       this.guessCount = 0;
       this.wager = 0;
       domUpdates.clueDisable(this.answerplace);
     } 
   }
   takeInWager() {
-    if (game.players[this.player].score >= $('.dd-input').val() || round.currentClues[14].pointValue >= $('.dd-input').val()) {
+    if (game.players[this.player].score >= $('.dd-input').val() || game.roundClass.currentClues[14].pointValue >= $('.dd-input').val()) {
       this.wager = $('.dd-input').val();
       domUpdates.tearDownCard();
       this.cluePopup(dailyDoubleClue)
