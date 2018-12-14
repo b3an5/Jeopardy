@@ -4,6 +4,8 @@ class Game {
     this.players = [];
     this.round3 = false;
     this.data
+    this.roundClass = new Round();
+    this.round3Class;
   }
   init() {
     this.players.push(new Player($('.js-player1-name-input').val()));

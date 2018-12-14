@@ -53,7 +53,7 @@ class Round {
   }
   changeRound() {
     if (this.completedClues === 16 && game.round === 2) {
-      round = new Round3;
+      game.round3Class = new Round3();
       domUpdates.displayRoundThreeCard();
     } else if (this.completedClues === 16 ) {
       game.endRound();

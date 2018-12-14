@@ -1,6 +1,5 @@
 let game = new Game();
 let clue = new Clue();
-let round;
 let dailyDoubleClue;
 
 let dailyDoubleSound = new Audio('./sound/DD.mp3');
@@ -21,7 +20,7 @@ $('.start-button').on('click', (e) => {
   domUpdates.splash();
   domUpdates.backgroundBox();
   game.parseData();
-  round = new Round();
+  round = game.roundClass;
   round.grabCategories(game.data);
   round.grabClues();
   round.displayClue();
